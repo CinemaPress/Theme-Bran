@@ -1,0 +1,43 @@
+<div class="short_content">
+    <a href="<%- movie.url %>">
+        <img src="<%- movie.poster %>" alt="<%- movie.title %>" class="shortstory-img"/>
+        <div class="short_header">
+            <%- movie.title %> (<% if (movie.season && movie.episode) { %><%- movie.season %> сезон <%- movie.episode %> серия <% if (movie.translate) { %><%- movie.translate %><% } %><% } else { %><%- movie.year %><% } %>)
+        </div>
+    </a>
+    <div class="short_overlay">
+        <a href="<%- movie.url %>">
+            <div class="small-play"></div>
+        </a>
+    </div>
+    <div class="short_info">
+        <span class="t-year">
+            <i class="fa fa-navicon"></i>&nbsp;<%- movie.year %>
+        </span>
+    </div>
+    <div class="ratelabel">
+        <%- movie.country.substr(0, 10) %>
+    </div>
+    <div class="qulabel">
+        <%- movie.genre.substr(0, 10) %>
+    </div>
+    <div class="eyelabel">
+        <a href="<%- movie.url %>/<%- page.urls.movies.trailer %>"><i class="fa fa-video-camera">&nbsp;</i></a>
+    </div>
+    <div class="rating-scores">
+        <div>КП <span class="kinopoisk"><%- movie.kp_rating/10 %></span></div>
+        <div>IMDB <span class="imdb"><%- movie.imdb_rating/10 %></span></div>
+    </div>
+    <div class="small_rating">
+        <div class="ratebox2">
+            <div class="rating-count">
+                <span id="ratig-layer-501" class="ignore-select"><span class="ratingtypeplusminus ignore-select ratingplus"><%- movie.rating %>%</span>
+                </span>
+                <div class="vote-num">Голосов:
+                    <span class="ignore-select"><%- movie.vote %></span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

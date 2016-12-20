@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+
+    <% include includes/head.ejs %>
+
+</head>
+<body>
+<header class="header">
+
+    <% include includes/header.ejs %>
+
+</header>
+<section class="container">
+    <div class="cont-wrap">
+        <div class="mp-pusher" id="mp-pusher">
+
+            <% include includes/nav.ejs %>
+
+            <div class="scroller">
+                <div class="scroller-inner">
+
+                    <% if (typeof slider == 'object' && slider.movies.length) { %>
+
+                    <section class="hblock cf">
+
+                        <div id="owl-demo" class="owl-carousel owl-theme" style="margin: 20px auto;">
+
+                            <% slider.movies.forEach(function (movie) { %>
+
+                            <div class="item">
+
+                                <% include includes/short.ejs %>
+
+                            </div>
+
+                            <% }); %>
+
+                        </div>
+
+                    </section>
+
+                    <% } %>
+
+                    <div class="cf">
+                        <div id="full-movie">
+                            <div class="breadcrumbs">
+                                <span>
+                                    <a href="<%- page.protocol %><%- page.domain %>">
+                                        Главная
+                                    </a>
+                                </span>
+                                <span>
+                                    »
+                                </span>
+                                <span>
+                                    <%- movie.genre_url %>
+                                </span>
+                                <span>
+                                    »
+                                </span>
+                                <span>
+                                    <a href="<%- movie.url %>">
+                                        <%- movie.title %>
+                                    </a>
+                                </span>
+                                <span>
+                                    »
+                                </span>
+                                <span>
+                                    Трейлер
+                                </span>
+                            </div>
+                            <section class="full-story cf">
+                                <section class="fleft cf">
+                                    <div class="poster cf">
+                                        <img src="<%- movie.poster %>" alt="<%- movie.title %> трейлер" title="<%- movie.title %> трейлер"/>
+                                    </div>
+                                </section>
+                                <section class="fmid">
+                                    <div class="moviecard">
+                                        <div class="movie-ratings">
+                                            <div class="imdbRating">
+                                                <span class="star">★</span>
+                                                <span class="score"><%- movie.rating/10 %></span>
+                                                <span class="score-out-of" style="font-family: PF DinDisplay Pro;">/ <span>10</span> (<span><%- movie.vote %></span>)</span>
+                                            </div>
+                                        </div>
+                                        <label class="bdt"><%- movie.premiere %></label>
+                                        <nav class="button-share-container">
+                                            <div class="buttons">
+                                                <div class="tw share-btn" onclick="share(this)" tooltip="Twitter"><i class="fa fa-twitter"></i> </div>
+                                            </div>
+                                            <div class="buttons">
+                                                <div class="mr share-btn" onclick="share(this)" tooltip="Мой Мир"> <i class="fa fa-at"></i>
+                                                </div>
+                                            </div>
+                                            <div class="buttons">
+                                                <div class="gp share-btn" onclick="share(this)" tooltip="Google Plus"><i class="fa fa-google-plus"></i>
+                                                </div>
+                                            </div>
+                                            <div class="buttons">
+                                                <div class="ok share-btn" onclick="share(this)" tooltip="Одноклассники"> <i class="fa fa-odnoklassniki"></i>
+                                                </div>
+                                            </div>
+                                            <div class="buttons">
+                                                <div class="vk share-btn" onclick="share(this)" tooltip="Вконтакте"> <i class="fa fa-vk"></i>
+                                                </div>
+                                            </div>
+                                            <div class="buttons">
+                                                <div class="fb share-btn" onclick="share(this)" tooltip="Facebook"> <i class="fa fa-facebook"></i>
+                                                </div>
+                                            </div>
+                                            <a class="buttons" href="javascript:void(0)" onClick="return false;">
+                                                <span class="buttons" tooltip="Поделиться">
+                                                    <span class="rotate"></span>
+                                                </span>
+                                            </a>
+                                        </nav>
+                                        <div id="movie-content">
+                                            <div class="movie-title">
+                                                <h1><%- movie.title %> трейлер</h1>
+                                                <strong class="orig_title"><%- movie.title_en %></strong>
+                                            </div>
+                                            <div class="movie-details">
+                                                <% if (movie.countries_url) { %>
+                                                <span class="movie-country">
+                                                    <i class="fa fa-globe" aria-hidden="true"></i>&nbsp;<%- movie.countries_url %>
+                                                </span>
+                                                <% } %>
+                                                <% if (movie.genres_url) { %>
+                                                <span class="movie-genre">
+                                                        <i class="fa fa-tags" aria-hidden="true"></i>&nbsp;<%- movie.genres_url %>
+                                                </span>
+                                                <% } %>
+                                                <% if (movie.year_url) { %>
+                                                <span class="movie-year">
+                                                        <i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;<%- movie.year_url %>
+                                                </span>
+                                                <% } %>
+                                            </div>
+                                            <% if (movie.directors_url) { %>
+                                            <div class="movie-castcrew">
+                                                <span class="title">Режиссер:</span>
+                                                <span class="name"><%- movie.directors_url %></span>
+                                            </div>
+                                            <% } %>
+                                            <div class="movie-castcrew">
+                                                <span class="title">Рейтинг:</span>
+                                                <span class="name" style="color: #a17514">КиноПоиск - <%- movie.kp_rating/10 %></span>
+                                                <span class="name" style="color: #8f4815">IMDb - <%- movie.imdb_rating/10 %></span>
+                                            </div>
+                                            <% if (movie.actors_url) { %>
+                                            <div class="movie-castcrew">
+                                                <span class="title"><%- movie.actors_url %></span>
+                                            </div>
+                                            <% } %>
+                                            <div class="box" id="box">
+                                                <div class="post_title">
+                                                    <h2 class="news-title">
+                                                        <i class="fa fa-navicon" style="color: #FF5722;" aria-hidden="true"></i> Трейлер <span style="color:#085294"><%- movie.title %></span> <%- movie.year %></h2>
+                                                </div>
+                                                <p class="text">
+                                                    <%- page.seo %>
+                                                </p>
+                                            </div>
+                                            <div class="movie">
+                                                <a href="<%- movie.url %>/<%- page.urls.movies.online %>" title="Смотреть онлайн <%- movie.title %>">
+                                                    <span><i class="fa fa-video-camera" aria-hidden="true"></i>&nbsp;Онлайн</span>
+                                                </a>
+                                                <a href="<%- movie.url %>/<%- page.urls.movies.download %>" title="Скачать <%- movie.title %>">
+                                                    <span><i class="fa fa-download" aria-hidden="true"></i>&nbsp;Скачать</span>
+                                                </a>
+                                                <a href="javascript:void(0);" class="active" title="Трейлер <%- movie.title %>">
+                                                    <span><i class="fa fa-play" aria-hidden="true"></i>&nbsp;Трейлер</span>
+                                                </a>
+                                                <a href="<%- movie.url %>/<%- page.urls.movies.picture %>" title="Кадры <%- movie.title %>">
+                                                    <span><i class="fa fa-picture-o" aria-hidden="true"></i>&nbsp;Кадры</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+
+                                <div style="clear: both"></div>
+
+                                <section class="cinemapress-data">
+                                    <%- page.player %>
+                                </section>
+
+                                <div style="clear: both"></div>
+
+                                <section class="fright">
+                                    <div class="comments">
+                                        <% if (page.comments) { %>
+                                        <%- page.comments %>
+                                        <% } %>
+                                    </div>
+                                </section>
+                            </section>
+
+                            <div style="clear: both"></div>
+
+                            <% if (typeof movies == 'object') { for (var type in movies) { if (movies.hasOwnProperty(type)) { %>
+
+                            <% if (movies[type].length) { movies[type].forEach(function (category) {  %>
+
+                            <section class="hblock cf">
+
+                                <div class="block-link">
+                                    <%- category.name %>
+                                </div>
+
+                                <% if (category.movies.length) { category.movies.forEach(function (movie) {  %>
+
+                                <article class="shortstory cf">
+
+                                    <% include includes/short.ejs %>
+
+                                </article>
+
+                                <% }); } %>
+
+                            </section>
+
+                            <% }); } %>
+
+                            <% } } } %>
+
+                            <div style="clear: both"></div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<footer class="footer cf">
+
+    <% include includes/footer.ejs %>
+
+</footer>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<div class="flex-rw">
+    <ul class="footer-list-top-info">
+        <li>
+            <div class="footer-list-header">
+                <span class="ion-android-list">Весь список</span>
+            </div>
+        </li>
+        <li>
+            <a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.genre %>" class="generic-anchor footer-list-anchor">Все жанры</a>
+        </li>
+        <li>
+            <a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.country %>" class="generic-anchor footer-list-anchor">Все страны</a>
+        </li>
+        <li>
+            <a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.year %>" class="generic-anchor footer-list-anchor">Все года</a>
+        </li>
+        <li>
+            <a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.director %>" class="generic-anchor footer-list-anchor">Все режиссеры</a>
+        </li>
+        <li>
+            <a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.actor %>" class="generic-anchor footer-list-anchor">Все актеры</a>
+        </li>
+    </ul>
+    <ul class="footer-list-top">
+        <li>
+            <div class="footer-list-header"><span class="ion-location">Навигация</span></div>
+        </li>
+        <div class="rectangle"></div>
+        <li>
+            <a class="generic-anchor footer-list-anchor" href="<%- page.protocol %><%- page.domain %>/<%- page.urls.type %>/<%- page.urls.types.movie %>">Фильмы</a>
+        </li>
+        <li>
+            <a class="generic-anchor footer-list-anchor" href="<%- page.protocol %><%- page.domain %>/<%- page.urls.type %>/<%- page.urls.types.serial %>">Сериалы</a>
+        </li>
+        <li>
+            <a class="generic-anchor footer-list-anchor" href="<%- page.protocol %><%- page.domain %>/<%- page.urls.type %>/<%- page.urls.types.mult %>">Мультфильмы</a>
+        </li>
+        <li>
+            <a class="generic-anchor footer-list-anchor" href="<%- page.protocol %><%- page.domain %>/<%- page.urls.type %>/<%- page.urls.types.anime %>">Аниме</a>
+        </li>
+        <li>
+            <a class="generic-anchor footer-list-anchor" href="<%- page.protocol %><%- page.domain %>/<%- page.urls.type %>/<%- page.urls.types.tv %>">Передачи</a>
+        </li>
+    </ul>
+    <ul class="footer-list-top">
+        <li id='help'>
+            <div class="footer-list-header"><span class="ion-pricetags">Категории</span></div>
+        </li>
+        <div class="rectangle"></div>
+        <li>
+            <a class="generic-anchor footer-list-anchor" href="<%- page.protocol %><%- page.domain %>/<%- page.urls.year %>/2013">Фильмы 2013 года</a>
+        </li>
+        <li>
+            <a class="generic-anchor footer-list-anchor" href="<%- page.protocol %><%- page.domain %>/<%- page.urls.year %>/2014">Фильмы 2014 года</a>
+        </li>
+        <li>
+            <a class="generic-anchor footer-list-anchor" href="<%- page.protocol %><%- page.domain %>/<%- page.urls.year %>/2015">Фильмы 2015 года</a>
+        </li>
+        <li>
+            <a class="generic-anchor footer-list-anchor" href="<%- page.protocol %><%- page.domain %>/<%- page.urls.year %>/2016">Фильмы 2016 года</a>
+        </li>
+        <li>
+            <a class="generic-anchor footer-list-anchor" href="<%- page.protocol %><%- page.domain %>/<%- page.urls.year %>/2017">Фильмы 2017 года</a>
+        </li>
+    </ul>
+    <% if (page.social) { %>
+
+    <section class="footer-social-section flex-rw">
+        <span class="footer-social-overlap footer-social-connect">
+            Присоединяйся <span class="footer-social-small">и</span> смотри первым!
+        </span>
+        <span class="footer-social-overlap footer-social-icons-wrapper">
+            <% if (page.social.vk) { %>
+            <a class="generic-anchor" href="<%- page.social.vk %>" target="_blank"><i class="fa fa-vk"></i></a>
+            <% } %>
+            <% if (page.social.facebook) { %>
+            <a class="generic-anchor" href="<%- page.social.facebook %>" target="_blank"><i class="fa fa-facebook"></i></a>
+            <% } %>
+            <% if (page.social.twitter) { %>
+            <a class="generic-anchor" href="<%- page.social.twitter %>" target="_blank"><i class="fa fa-twitter"></i></a>
+            <% } %>
+            <% if (page.social.gplus) { %>
+            <a class="generic-anchor" href="<%- page.social.gplus %>" target="_blank"><i class="fa fa-google-plus"></i></a>
+            <% } %>
+        </span>
+    </section>
+
+    <% } %>
+
+    <div class="recentlyViewedBlock" style="margin: 25px; display: none;">
+        <div>Вы надавно смотрели:</div>
+        <div id="recentlyViewed"></div>
+    </div>
+
+    <section class="footer-bottom-section flex-rw">
+        <div class="footer-bottom-wrapper">
+            <a href="<%- page.protocol %><%- page.domain %>">Лучшие фильмы онлайн бесплатно</a>
+        </div>
+        <div class="footer-bottom-wrapper">
+            <a href="mailto:<%- page.email %>">Email: <%- page.email %></a>
+        </div>
+    </section>
+</div>
+<div class="footer_links cf">
+    <ul>
+        <li>
+            <a href="<%- page.protocol %><%- page.domain %>">Смотреть сериалы онлайн в хорошем качестве</a>
+        </li>
+        <li class="counter">
+
+        </li>
+    </ul>
+</div>
+<div class="age"><img src="/themes/bran/public/images/pg.png" alt="18+"></div>
+<div class="copyrights">
+    &copy;&nbsp;2017&nbsp;<a href="https://cinemapress.org" target="_blank">CinemaPress&nbsp;ACMS</a>
+</div>
+<script type="text/javascript" src="/themes/bran/public/js/all.js"></script>
+<script type="text/javascript" src="/themes/bran/public/js/html5lightbox.js"></script>
+
+<%- page.codes.footer %>

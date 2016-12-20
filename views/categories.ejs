@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+
+    <% include includes/head.ejs %>
+
+</head>
+<body>
+<header class="header">
+
+    <% include includes/header.ejs %>
+
+</header>
+<section class="container">
+    <div class="cont-wrap">
+        <div class="mp-pusher" id="mp-pusher">
+
+            <% include includes/nav.ejs %>
+
+            <div class="scroller">
+                <div class="scroller-inner">
+
+                    <% if (typeof slider == 'object' && slider.movies.length) { %>
+
+                    <section class="hblock cf">
+
+                        <div id="owl-demo" class="owl-carousel owl-theme" style="margin: 20px auto;">
+
+                            <% slider.movies.forEach(function (movie) { %>
+
+                            <div class="item">
+
+                                <% include includes/short.ejs %>
+
+                            </div>
+
+                            <% }); %>
+
+                        </div>
+
+                    </section>
+
+                    <% } %>
+
+                    <div class="mblock breadcrumbs">
+                        <h1><%- page.title %></h1>
+                        <span>
+                            <a href="<%- page.protocol %><%- page.domain %>">
+                                Главная
+                            </a>
+                        </span>
+                        <span>
+                            »
+                        </span>
+                        <span>
+                            <%- page.title %>
+                        </span>
+                    </div>
+
+                    <div class="cf">
+                        <div id="cinemapress-content">
+
+                            <% if (typeof categories == 'object' && categories.length) { %>
+
+                            <div style="margin: 0 5%; text-align: center;">
+
+                                <% categories.forEach(function (category) { %>
+
+                                <div style="float: left; margin: 10px; text-align: center;">
+                                    <a href="<%- category.url %>" target="_blank">
+                                        <img src="<%- category.image %>" alt="<%- category.name %>" style="width: 200px; height: 100px; border-radius: 10px"><br>
+                                        <%- category.name %>
+                                    </a>
+                                </div>
+
+                                <% }); %>
+
+                            </div>
+
+                            <% } %>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<footer class="footer cf">
+
+    <% if (page.seo) { %>
+
+    <div class="about">
+        <div class="wrapper">
+            <%- page.seo %>
+        </div>
+    </div>
+
+    <% } %>
+
+    <% include includes/footer.ejs %>
+
+</footer>
+</body>
+</html>

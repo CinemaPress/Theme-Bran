@@ -1,0 +1,12 @@
+<div class="logo">
+    <a href="/">
+        <img src="/themes/bran/public/images/logo.png" alt="Логотип"/>
+    </a>
+</div>
+<button class="menu_button" id="trigger">Меню</button>
+<div class="searchblock">
+    <form method="get" action="<%- page.protocol %><%- page.domain %>/<%- page.urls.search %>/title">
+        <input id="story" name="q" type="text" value="Поиск" onfocus='if (this.value == "Поиск") { this.value=""; }' onblur='if (this.value == "") { this.value="Поиск"; }' class="searchform"/>
+    </form>
+</div>
+<a href="javascript:void(0)" class="fav_link continueViewingBlock" id="continueViewing" style="display: none;">Продолжить просмотр?</a>

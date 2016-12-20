@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+
+    <% include includes/head.ejs %>
+
+</head>
+<body>
+<header class="header">
+
+    <% include includes/header.ejs %>
+
+</header>
+<section class="container">
+    <div class="cont-wrap">
+        <div class="mp-pusher" id="mp-pusher">
+
+            <% include includes/nav.ejs %>
+
+            <div class="scroller">
+                <div class="scroller-inner">
+
+                    <div class="gl_tit">
+                        <i class="fa fa-star-o"></i>
+                        <h1>Смотреть фильмы онлайн бесплатно</h1><i class="fa fa-star-o"></i>
+                        <span>Лучшее из мира кино в хорошем качестве и без регистрации!</span>
+                    </div>
+
+                    <% if (typeof slider == 'object' && slider.movies.length) { %>
+
+                    <section class="hblock cf">
+
+                        <div id="owl-demo" class="owl-carousel owl-theme" style="margin: 20px auto;">
+
+                            <% slider.movies.forEach(function (movie) { %>
+
+                            <div class="item">
+
+                                <% include includes/short.ejs %>
+
+                            </div>
+
+                            <% }); %>
+
+                        </div>
+
+                    </section>
+
+                    <% } %>
+
+                    <% if (typeof movies == 'object') { for (var type in movies) { if (movies.hasOwnProperty(type)) { %>
+
+                    <% if (movies[type].length) { %>
+
+                    <% movies[type].forEach(function (category) { %>
+
+                    <section class="hblock cf">
+                        <div class="block-link">
+                            <span class="ion-grid"><%- category.name %></span>
+                        </div>
+
+                        <% if (category.movies.length) { %>
+
+                        <% category.movies.forEach(function (movie) { %>
+
+                        <article class="shortstory cf">
+
+                            <% include includes/short.ejs %>
+
+                        </article>
+
+                        <% }); %>
+
+                        <% } %>
+
+                    </section>
+
+                    <% }); %>
+
+                    <% } %>
+
+                    <% } } } %>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<footer class="footer cf">
+
+    <% if (page.seo) { %>
+
+    <div class="about">
+        <div class="wrapper">
+            <%- page.seo %>
+        </div>
+    </div>
+
+    <% } %>
+
+    <% include includes/footer.ejs %>
+
+</footer>
+</body>
+</html>
