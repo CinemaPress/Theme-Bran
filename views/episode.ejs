@@ -22,7 +22,7 @@
 
                     <% if (typeof slider == 'object' && slider.movies.length) { %>
 
-                    <section class="hblock cf">
+                    <div class="hblock cf">
 
                         <div id="owl-demo" class="owl-carousel owl-theme" style="margin: 20px auto;">
 
@@ -38,8 +38,14 @@
 
                         </div>
 
-                    </section>
+                    </div>
 
+                    <% } %>
+
+                    <% if (typeof page.adv == 'object' && page.adv.top) { %>
+                    <div style="text-align: center; margin: 10px auto">
+                        <%- page.adv.top %>
+                    </div>
                     <% } %>
 
                     <div class="cf">
@@ -71,8 +77,8 @@
                                     <%- page.title %>
                                 </span>
                             </div>
-                            <section class="full-story cf">
-                                <section class="fleft cf">
+                            <div class="full-story cf">
+                                <div class="fleft cf">
                                     <div class="poster cf">
                                         <img src="<%- movie.poster %>" alt="<%- movie.title %> серия онлайн" title="<%- movie.title %> серия онлайн"/>
                                         <div class="poster-qulabel watchLaterBlock" style="display: none;">
@@ -81,8 +87,8 @@
                                             </a>
                                         </div>
                                     </div>
-                                </section>
-                                <section class="fmid">
+                                </div>
+                                <div class="fmid">
                                     <div class="moviecard">
                                         <div class="movie-ratings">
                                             <div class="imdbRating">
@@ -94,30 +100,30 @@
                                         <label class="bdt"><%- movie.premiere %></label>
                                         <nav class="button-share-container">
                                             <div class="buttons">
-                                                <div class="tw share-btn" onclick="share(this)" tooltip="Twitter"><i class="fa fa-twitter"></i> </div>
+                                                <div class="tw share-btn" onclick="share(this)" data-tooltip="Twitter"><i class="fa fa-twitter"></i> </div>
                                             </div>
                                             <div class="buttons">
-                                                <div class="mr share-btn" onclick="share(this)" tooltip="Мой Мир"> <i class="fa fa-at"></i>
+                                                <div class="mr share-btn" onclick="share(this)" data-tooltip="Мой Мир"> <i class="fa fa-at"></i>
                                                 </div>
                                             </div>
                                             <div class="buttons">
-                                                <div class="gp share-btn" onclick="share(this)" tooltip="Google Plus"><i class="fa fa-google-plus"></i>
+                                                <div class="gp share-btn" onclick="share(this)" data-tooltip="Google Plus"><i class="fa fa-google-plus"></i>
                                                 </div>
                                             </div>
                                             <div class="buttons">
-                                                <div class="ok share-btn" onclick="share(this)" tooltip="Одноклассники"> <i class="fa fa-odnoklassniki"></i>
+                                                <div class="ok share-btn" onclick="share(this)" data-tooltip="Одноклассники"> <i class="fa fa-odnoklassniki"></i>
                                                 </div>
                                             </div>
                                             <div class="buttons">
-                                                <div class="vk share-btn" onclick="share(this)" tooltip="Вконтакте"> <i class="fa fa-vk"></i>
+                                                <div class="vk share-btn" onclick="share(this)" data-tooltip="Вконтакте"> <i class="fa fa-vk"></i>
                                                 </div>
                                             </div>
                                             <div class="buttons">
-                                                <div class="fb share-btn" onclick="share(this)" tooltip="Facebook"> <i class="fa fa-facebook"></i>
+                                                <div class="fb share-btn" onclick="share(this)" data-tooltip="Facebook"> <i class="fa fa-facebook"></i>
                                                 </div>
                                             </div>
                                             <a class="buttons" href="javascript:void(0)" onClick="return false;">
-                                                <span class="buttons" tooltip="Поделиться">
+                                                <span class="buttons" data-tooltip="Поделиться">
                                                     <span class="rotate"></span>
                                                 </span>
                                             </a>
@@ -185,24 +191,36 @@
                                             </div>
                                         </div>
                                     </div>
-                                </section>
+                                </div>
 
                                 <div style="clear: both"></div>
 
-                                <section class="cinemapress-data" style="height: 370px">
+                                <% if (typeof page.adv == 'object' && page.adv.over) { %>
+                                <div style="text-align: center; margin: 10px auto">
+                                    <%- page.adv.over %>
+                                </div>
+                                <% } %>
+
+                                <div class="cinemapress-data" style="height: 370px">
                                     <%- page.player %>
-                                </section>
+                                </div>
+
+                                <% if (typeof page.adv == 'object' && page.adv.under) { %>
+                                <div style="text-align: center; margin: 10px auto">
+                                    <%- page.adv.under %>
+                                </div>
+                                <% } %>
 
                                 <div style="clear: both"></div>
 
-                                <section>
+                                <div>
                                     <div class="comments">
                                         <% if (page.comments) { %>
                                         <%- page.comments %>
                                         <% } %>
                                     </div>
-                                </section>
-                            </section>
+                                </div>
+                            </div>
 
                             <div style="clear: both"></div>
 
@@ -210,7 +228,7 @@
 
                             <% if (movies[type].length) { movies[type].forEach(function (category) {  %>
 
-                            <section class="hblock cf">
+                            <div class="hblock cf">
 
                                 <div class="block-link">
                                     <%- category.name %>
@@ -218,15 +236,15 @@
 
                                 <% if (category.movies.length) { category.movies.forEach(function (movie) {  %>
 
-                                <article class="shortstory cf">
+                                <div class="shortstory cf">
 
                                     <% include includes/short.ejs %>
 
-                                </article>
+                                </div>
 
                                 <% }); } %>
 
-                            </section>
+                            </div>
 
                             <% }); } %>
 
@@ -237,6 +255,13 @@
                         </div>
 
                     </div>
+
+                    <% if (typeof page.adv == 'object' && page.adv.bottom) { %>
+                    <div style="text-align: center; margin: 10px auto">
+                        <%- page.adv.bottom %>
+                    </div>
+                    <% } %>
+
                 </div>
             </div>
         </div>

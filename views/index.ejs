@@ -28,7 +28,7 @@
 
                     <% if (typeof slider == 'object' && slider.movies.length) { %>
 
-                    <section class="hblock cf">
+                    <div class="hblock cf">
 
                         <div id="owl-demo" class="owl-carousel owl-theme" style="margin: 20px auto;">
 
@@ -44,8 +44,14 @@
 
                         </div>
 
-                    </section>
+                    </div>
 
+                    <% } %>
+
+                    <% if (typeof page.adv == 'object' && page.adv.top) { %>
+                    <div style="text-align: center; margin: 10px auto">
+                        <%- page.adv.top %>
+                    </div>
                     <% } %>
 
                     <% if (typeof movies == 'object') { for (var type in movies) { if (movies.hasOwnProperty(type)) { %>
@@ -54,7 +60,7 @@
 
                     <% movies[type].forEach(function (category) { %>
 
-                    <section class="hblock cf">
+                    <div class="hblock cf">
                         <div class="block-link">
                             <span class="ion-grid"><%- category.name %></span>
                         </div>
@@ -63,23 +69,29 @@
 
                         <% category.movies.forEach(function (movie) { %>
 
-                        <article class="shortstory cf">
+                        <div class="shortstory cf">
 
                             <% include includes/short.ejs %>
 
-                        </article>
+                        </div>
 
                         <% }); %>
 
                         <% } %>
 
-                    </section>
+                    </div>
 
                     <% }); %>
 
                     <% } %>
 
                     <% } } } %>
+
+                    <% if (typeof page.adv == 'object' && page.adv.bottom) { %>
+                    <div style="text-align: center; margin: 10px auto">
+                        <%- page.adv.bottom %>
+                    </div>
+                    <% } %>
 
                 </div>
             </div>
