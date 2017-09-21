@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="ru-RU">
+<html lang="ru" prefix="og: http://ogp.me/ns#
+              video: http://ogp.me/ns/video#
+              ya: http://webmaster.yandex.ru/vocabularies/">
 <head>
 
     <% include includes/head.ejs %>
@@ -20,13 +22,13 @@
             <div class="scroller">
                 <div class="scroller-inner">
 
-                    <% if (typeof slider == 'object' && slider.movies.length) { %>
+                    <% if (typeof slider === 'object' && slider.length) { %>
 
                     <div class="hblock cf">
 
                         <div id="owl-demo" class="owl-carousel owl-theme" style="margin: 20px auto;">
 
-                            <% slider.movies.forEach(function (movie) { %>
+                            <% slider.forEach(function (movie) { %>
 
                             <div class="item">
 
@@ -42,7 +44,7 @@
 
                     <% } %>
 
-                    <% if (typeof page.adv == 'object' && page.adv.top) { %>
+                    <% if (typeof page.adv === 'object' && page.adv.top) { %>
                     <div style="text-align: center; margin: 10px auto">
                         <%- page.adv.top %>
                     </div>
@@ -52,19 +54,21 @@
                         <div id="full-movie">
                             <div class="breadcrumbs">
                                 <span>
-                                    <a href="<%- page.protocol %><%- page.domain %>">
+                                    <a href="/">
                                         Главная
                                     </a>
                                 </span>
                                 <span>
                                     »
                                 </span>
+                                <% if (movie.genre_url) { %>
                                 <span>
                                     <%- movie.genre_url %>
                                 </span>
                                 <span>
                                     »
                                 </span>
+                                <% } %>
                                 <span>
                                     <a href="<%- movie.url %>">
                                         <%- movie.title %>
@@ -97,7 +101,9 @@
                                                 <span class="score-out-of" style="font-family: PF DinDisplay Pro;">/ <span>10</span> (<span><%- movie.vote %></span>)</span>
                                             </div>
                                         </div>
+                                        <% if (movie.premiere) { %>
                                         <label class="bdt"><%- movie.premiere %></label>
+                                        <% } %>
                                         <nav class="button-share-container">
                                             <div class="buttons">
                                                 <div class="tw share-btn" onclick="share(this)" data-tooltip="Twitter"><i class="fa fa-twitter"></i> </div>
@@ -172,6 +178,9 @@
                                                         <i class="fa fa-navicon" style="color: #FF5722;" aria-hidden="true"></i> Кадры <span style="color:#085294"><%- movie.title %></span> <%- movie.year %></h2>
                                                 </div>
                                                 <p class="text">
+                                                    <% if (movie.quality) { %><span style="font-weight: bold">Качество:</span> <span class="cinemapress-quality" style="position: inherit; margin: 0; padding: 3px"><span class="cinemapress-svg-quality"></span> <%- movie.quality %></span><% } %>
+                                                    <% if (movie.translate) { %><span style="font-weight: bold">Перевод:</span> <span class="cinemapress-translate" style="position: inherit; margin: 0; padding: 3px"><span class="cinemapress-svg-translate"></span> <%- movie.translate %></span><% } %>
+                                                    <br>
                                                     <%- page.seo %>
                                                 </p>
                                             </div>
@@ -195,17 +204,17 @@
 
                                 <div style="clear: both"></div>
 
-                                <% if (typeof page.adv == 'object' && page.adv.over) { %>
+                                <% if (typeof page.adv === 'object' && page.adv.over) { %>
                                 <div style="text-align: center; margin: 10px auto">
                                     <%- page.adv.over %>
                                 </div>
                                 <% } %>
 
-                                <div class="cinemapress-data" style="height: 370px">
+                                <div class="cinemapress-data" style="height: 370px; border-radius: 10px; background: transparent;overflow: hidden;">
                                     <%- page.player %>
                                 </div>
 
-                                <% if (typeof page.adv == 'object' && page.adv.under) { %>
+                                <% if (typeof page.adv === 'object' && page.adv.under) { %>
                                 <div style="text-align: center; margin: 10px auto">
                                     <%- page.adv.under %>
                                 </div>
@@ -222,9 +231,26 @@
                                 </div>
                             </div>
 
+                            <% if (typeof contents === 'object' && contents.length) { %>
+                            <div style="clear: both"></div>
+                            <% contents.forEach(function (content) { %>
+                            <div class="cinemapress-news-block">
+                                <div style="margin: 0; padding: 10px">
+                                    <a href="<%- content.url %>" class="cinemapress-news">
+                                        <img src="<%- content.image %>" class="cinemapress-news-image" alt="<%- content.title %>" style="height: 200px">
+                                        <div class="cinemapress-news-title">
+                                            <%- content.title %>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <% }); %>
+                            <div style="clear: both"></div>
+                            <% } %>
+
                             <div style="clear: both"></div>
 
-                            <% if (typeof movies == 'object') { for (var type in movies) { if (movies.hasOwnProperty(type)) { %>
+                            <% if (typeof movies === 'object') { for (var type in movies) { if (movies.hasOwnProperty(type)) { %>
 
                             <% if (movies[type].length) { movies[type].forEach(function (category) {  %>
 
@@ -256,7 +282,7 @@
 
                     </div>
 
-                    <% if (typeof page.adv == 'object' && page.adv.bottom) { %>
+                    <% if (typeof page.adv === 'object' && page.adv.bottom) { %>
                     <div style="text-align: center; margin: 10px auto">
                         <%- page.adv.bottom %>
                     </div>

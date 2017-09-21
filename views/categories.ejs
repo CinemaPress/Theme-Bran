@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru-RU">
+<html lang="ru">
 <head>
 
     <% include includes/head.ejs %>
@@ -20,13 +20,13 @@
             <div class="scroller">
                 <div class="scroller-inner">
 
-                    <% if (typeof slider == 'object' && slider.movies.length) { %>
+                    <% if (typeof slider === 'object' && slider.length) { %>
 
                     <div class="hblock cf">
 
                         <div id="owl-demo" class="owl-carousel owl-theme" style="margin: 20px auto;">
 
-                            <% slider.movies.forEach(function (movie) { %>
+                            <% slider.forEach(function (movie) { %>
 
                             <div class="item">
 
@@ -42,7 +42,7 @@
 
                     <% } %>
 
-                    <% if (typeof page.adv == 'object' && page.adv.top) { %>
+                    <% if (typeof page.adv === 'object' && page.adv.top) { %>
                     <div style="text-align: center; margin: 10px auto">
                         <%- page.adv.top %>
                     </div>
@@ -51,7 +51,7 @@
                     <div class="mblock breadcrumbs">
                         <h1><%- page.title %></h1>
                         <span>
-                            <a href="<%- page.protocol %><%- page.domain %>">
+                            <a href="/">
                                 Главная
                             </a>
                         </span>
@@ -66,29 +66,27 @@
                     <div class="cf">
                         <div id="cinemapress-content">
 
-                            <% if (typeof categories == 'object' && categories.length) { %>
-
-                            <div style="margin: 0 5%; text-align: center;">
-
-                                <% categories.forEach(function (category) { %>
-
-                                <div style="float: left; margin: 10px; text-align: center;">
-                                    <a href="<%- category.url %>" target="_blank">
-                                        <img src="<%- category.image %>" alt="<%- category.name %>" style="width: 200px; height: 100px; border-radius: 10px"><br>
-                                        <%- category.name %>
+                            <% if (typeof categories === 'object' && categories.length) { %>
+                            <div style="clear: both"></div>
+                            <% categories.forEach(function (content) { %>
+                            <div style="float: left; width: 25%;">
+                                <div style="margin: 0; padding: 10px">
+                                    <a href="<%- content.url %>" class="cinemapress-news">
+                                        <img src="<%- content.image %>" class="cinemapress-news-image" alt="<%- content.title %>" style="height: 160px">
+                                        <div class="cinemapress-news-title">
+                                            <%- content.title %>
+                                        </div>
                                     </a>
                                 </div>
-
-                                <% }); %>
-
                             </div>
-
+                            <% }); %>
+                            <div style="clear: both"></div>
                             <% } %>
 
                         </div>
                     </div>
 
-                    <% if (typeof page.adv == 'object' && page.adv.bottom) { %>
+                    <% if (typeof page.adv === 'object' && page.adv.bottom) { %>
                     <div style="text-align: center; margin: 10px auto">
                         <%- page.adv.bottom %>
                     </div>
