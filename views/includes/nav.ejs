@@ -36,7 +36,9 @@
                 </div>
             </li>
             <li><a class="ion-videocamera" href="/<%- page.urls.type %>/<%- page.urls.types.movie %>?sorting=premiere-up">Премьеры</a></li>
-            <li><a class="ion-flame" href="/<%- page.urls.year %>/2017">Новинки кино</a></li>
+            <% page.urls.years.slice(0,1).forEach(function(year) { %>
+            <li><a class="ion-flame" href="<%- year.url %>">Новинки кино</a></li>
+            <% }); %>
             <li><a class="ion-android-star-outline" href="/<%- page.urls.content %>?tag=Коллекция">Подборки</a></li>
         </ul>
     </div>

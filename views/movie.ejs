@@ -21,25 +21,15 @@
                 <div class="scroller-inner">
 
                     <% if (typeof slider === 'object' && slider.length) { %>
-
                     <div class="hblock cf">
-
                         <div id="owl-demo" class="owl-carousel owl-theme" style="margin: 20px auto;">
-
                             <% slider.forEach(function (movie) { %>
-
                             <div class="item">
-
                                 <% include includes/short.ejs %>
-
                             </div>
-
                             <% }); %>
-
                         </div>
-
                     </div>
-
                     <% } %>
 
                     <% if (typeof page.adv === 'object' && page.adv.top) { %>
@@ -74,8 +64,8 @@
                             <div class="full-story cf">
                                 <div class="fleft cf">
                                     <div class="poster cf">
-                                        <img src="<%- movie.poster %>" alt="<%- movie.title %> смотреть онлайн" title="<%- movie.title %> онлайн бесплатно"/>
-                                        <a href="<%- movie.url %>/<%- page.urls.movies.online %>" title="Смотреть онлайн фильм <%- movie.title %>">
+                                        <img src="<%- movie.poster %>" alt="<%- movie.title %>" title="<%- movie.title %>"/>
+                                        <a href="<%- movie.url %>/<%- page.urls.movies.online %>" title="Фильм <%- movie.title %>">
                                             <svg version="1.1" id="play" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" height="90px" width="90px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve"><path class="stroke-solid" fill="#ffc107" stroke="white" d="M49.9,2.5C23.6,2.8,2.1,24.4,2.5,50.4C2.9,76.5,24.7,98,50.3,97.5c26.4-0.6,47.4-21.8,47.2-47.7 C97.3,23.7,75.7,2.3,49.9,2.5" /><path class="stroke-dotted" fill="none" stroke="#ffc107" d="M49.9,2.5C23.6,2.8,2.1,24.4,2.5,50.4C2.9,76.5,24.7,98,50.3,97.5c26.4-0.6,47.4-21.8,47.2-47.7 C97.3,23.7,75.7,2.3,49.9,2.5" /><path class="icon" fill="#fff" d="M38,69c-1,0.5-1.8,0-1.8-1.1V32.1c0-1.1,0.8-1.6,1.8-1.1l34,18c1,0.5,1,1.4,0,1.9L38,69z" /></svg>
                                         </a>
                                         <div class="poster-qulabel watchLaterBlock" style="display: none;">
@@ -129,7 +119,7 @@
                                         </nav>
                                         <div id="movie-content">
                                             <div class="movie-title">
-                                                <h1><%- movie.title %> смотреть онлайн</h1>
+                                                <h1><%- movie.title %></h1>
                                                 <strong class="orig_title"><%- movie.title_en %></strong>
                                             </div>
                                             <div class="movie-details">
@@ -168,7 +158,7 @@
                                             <div class="box" id="box">
                                                 <div class="post_title">
                                                     <h2 class="news-title">
-                                                        <i class="fa fa-navicon" style="color: #FF5722;" aria-hidden="true"></i> Смотреть фильм <span style="color:#085294"><%- movie.title %></span> <%- movie.year %> онлайн бесплатно в хорошем качестве</h2>
+                                                        <i class="fa fa-navicon" style="color: #FF5722;" aria-hidden="true"></i> <span style="color:#085294"><%- movie.title %></span> <%- movie.year %></h2>
                                                 </div>
                                                 <p class="text">
                                                     <% if (movie.quality) { %><span style="font-weight: bold">Качество:</span> <span class="cinemapress-quality" style="position: inherit; margin: 0; padding: 3px"><span class="cinemapress-svg-quality"></span> <%- movie.quality %></span><% } %>
@@ -178,18 +168,26 @@
                                                 </p>
                                             </div>
                                             <div class="movie">
+                                                <% if (page.urls.movies.online) { %>
                                                 <a href="<%- movie.url %>/<%- page.urls.movies.online %>" title="Смотреть онлайн <%- movie.title %>">
                                                     <span><i class="fa fa-video-camera" aria-hidden="true"></i>&nbsp;Онлайн</span>
                                                 </a>
+                                                <% } %>
+                                                <% if (page.urls.movies.download) { %>
                                                 <a href="<%- movie.url %>/<%- page.urls.movies.download %>" title="Скачать <%- movie.title %>">
                                                     <span><i class="fa fa-download" aria-hidden="true"></i>&nbsp;Скачать</span>
                                                 </a>
+                                                <% } %>
+                                                <% if (page.urls.movies.trailer) { %>
                                                 <a href="<%- movie.url %>/<%- page.urls.movies.trailer %>" title="Трейлер <%- movie.title %>">
                                                     <span><i class="fa fa-play" aria-hidden="true"></i>&nbsp;Трейлер</span>
                                                 </a>
+                                                <% } %>
+                                                <% if (page.urls.movies.picture) { %>
                                                 <a href="<%- movie.url %>/<%- page.urls.movies.picture %>" title="Кадры <%- movie.title %>">
                                                     <span><i class="fa fa-picture-o" aria-hidden="true"></i>&nbsp;Кадры</span>
                                                 </a>
+                                                <% } %>
                                             </div>
                                         </div>
                                     </div>
@@ -203,12 +201,8 @@
                                 </div>
                                 <% } %>
 
-                                <div>
-                                    <div class="comments">
-                                        <% if (page.comments) { %>
-                                        <%- page.comments %>
-                                        <% } %>
-                                    </div>
+                                <div class="cinemapress-data" style="height: 370px; border-radius: 10px; background: transparent;overflow: hidden;">
+                                    <%- page.player %>
                                 </div>
 
                                 <% if (typeof page.adv === 'object' && page.adv.under) { %>
@@ -217,6 +211,15 @@
                                 </div>
                                 <% } %>
 
+                                <div style="clear: both"></div>
+
+                                <div>
+                                    <div class="comments">
+                                        <% if (page.comments) { %>
+                                        <%- page.comments %>
+                                        <% } %>
+                                    </div>
+                                </div>
                             </div>
 
                             <% if (typeof contents === 'object' && contents.length) { %>
@@ -238,34 +241,24 @@
 
                             <div style="clear: both"></div>
 
-                            <% if (typeof movies === 'object') { for (var type in movies) { if (movies.hasOwnProperty(type)) { %>
-
-                            <% if (movies[type].length) { movies[type].forEach(function (category) {  %>
-
+                            <% if (typeof movies === 'object') {
+                                for (var type in movies) {
+                                    if (movies.hasOwnProperty(type) && movies[type].length) {
+                                        movies[type].forEach(function (category) { %>
                             <div class="hblock cf">
-
                                 <div class="block-link">
                                     <%- category.name %>
                                 </div>
-
-                                <% if (category.movies.length) { category.movies.forEach(function (movie) {  %>
-
+                                <% if (category.movies.length) {
+                                    category.movies.forEach(function (movie) {  %>
                                 <div class="shortstory cf">
-
                                     <% include includes/short.ejs %>
-
                                 </div>
-
                                 <% }); } %>
-
                             </div>
-
-                            <% }); } %>
-
-                            <% } } } %>
+                            <% }); } } } %>
 
                             <div style="clear: both"></div>
-
                         </div>
 
                     </div>
