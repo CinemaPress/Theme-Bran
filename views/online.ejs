@@ -178,7 +178,7 @@
                                                 <p class="text">
                                                     <% if (movie.quality) { %><span style="font-weight: bold">Качество:</span> <span class="cinemapress-quality" style="position: inherit; margin: 0; padding: 3px"><span class="cinemapress-svg-quality"></span> <%- movie.quality %></span><% } %>
                                                     <% if (movie.translate) { %><span style="font-weight: bold">Перевод:</span> <span class="cinemapress-translate" style="position: inherit; margin: 0; padding: 3px"><span class="cinemapress-svg-translate"></span> <%- movie.translate %></span><% } %>
-                                                    <br>
+                                                    <% if (movie.quality || movie.translate) { %><br><% } %>
                                                     <%- page.seo %>
                                                 </p>
                                             </div>
