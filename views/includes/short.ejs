@@ -1,8 +1,8 @@
 <div class="short_content">
     <a href="<%- movie.url %>">
-        <img src="<%- movie.poster %>" alt="<%- movie.title %>" class="shortstory-img"/>
+        <img src="<%- movie.poster %>" alt="<%= movie.title %>" class="shortstory-img"/>
         <div class="short_header">
-            <%- movie.title %> (<% if (movie.season && movie.episode) { %><%- movie.season %> сезон <%- movie.episode %> серия <% if (movie.translate) { %><%- movie.translate %><% } %><% } else { %><%- movie.year %><% } %>)
+            <%= movie.title %> (<% if (movie.season && movie.episode) { %><%- movie.season %> сезон <%- movie.episode %> серия <% if (movie.translate) { %><%- movie.translate %><% } %><% } else { %><%- movie.year %><% } %>)
         </div>
     </a>
     <div class="short_overlay">
