@@ -220,8 +220,10 @@
                                 </div>
                                 <% } %>
 
-                                <div class="cinemapress-data" style="height: 370px; border-radius: 10px; background: transparent;overflow: hidden;">
+                                <div id="cinemapress-player" class="cinemapress-data" style="border-radius: 10px;">
+                                    <% if (page.player) { %>
                                     <%- page.player %>
+                                    <% } %>
                                 </div>
 
                                 <% if (typeof page.adv === 'object' && page.adv.under) { %>
