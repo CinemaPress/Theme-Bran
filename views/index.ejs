@@ -21,8 +21,8 @@
                 <div class="scroller-inner" style="z-index: 0">
 
                     <div class="gl_tit">
-                        <i class="fa fa-star-o"></i><h1><%= page.title %></h1><i class="fa fa-star-o"></i>
-                        <span>Лучшее из мира кино в одном месте на нашем сайте!</span>
+                        <i class="fa fa-star-o"></i><h1><%- page.h1 %></h1><i class="fa fa-star-o"></i>
+                        <span><%= page.title %></span>
                     </div>
 
                     <div class="flex-rw" style="background: url(/themes/bran/public/images/top_menu.png) center repeat-x; font-weight: normal; position: relative;">
@@ -40,7 +40,7 @@
                             <li style="padding: 0">
                                 <a class="generic-anchor footer-list-anchor" href="<%- year.url %>" style="text-shadow: 1px 1px 0 black, 0 0 1em #000;">
                                     <span class="fa fa-angle-double-right" style="color: #18cfc4"></span>
-                                    <span style="color: #fff;"> <%- year.title %> год </span>
+                                    <span style="color: #fff;"> <%- year.title %> <%- page.l.year %> </span>
                                     <span class="fa fa-angle-double-left" style="color: #18cfc4"></span>
                                 </a>
                             </li>

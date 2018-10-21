@@ -1,12 +1,12 @@
 <div class="logo">
     <a href="/">
-        <img src="/themes/bran/public/images/logo.png" alt="Логотип"/>
+        <img src="/themes/bran/public/images/logo.png?v=<%- page.ver %>" alt="Logo"/>
     </a>
 </div>
-<button class="menu_button" id="trigger">Меню</button>
+<button class="menu_button" id="trigger"><%- page.l.menu %></button>
 <div class="searchblock">
     <form method="get" action="/<%- page.urls.search %>/title">
-        <input id="story" name="q" type="text" value="Поиск" onfocus='if (this.value === "Поиск") { this.value=""; }' onblur='if (this.value === "") { this.value="Поиск"; }' class="searchform"/>
+        <input id="story" name="q" type="text" value="<%- page.l.search %>" onfocus='if (this.value === "<%- page.l.search %>") { this.value=""; }' onblur='if (this.value === "") { this.value="<%- page.l.search %>"; }' class="searchform"/>
     </form>
 </div>
-<a href="javascript:void(0)" class="fav_link continueViewingBlock" id="continueViewing" style="display: none;">Продолжить просмотр?</a>
+<a href="javascript:void(0)" class="fav_link continueViewingBlock" id="continueViewing" style="display: none;"><%- page.l.continue %>?</a>

@@ -31,7 +31,7 @@
                     <span>
                         <%- comment.user %>
                     </span><span>
-                        сказал(а)
+                        <%- page.l.said %>
                     </span><span>
                         <%- comment.date %>
                     </span>
@@ -52,52 +52,52 @@
     <ul class="footer-list-top-info">
         <li>
             <div class="footer-list-header">
-                <span class="ion-android-list">Весь список</span>
+                <span class="ion-android-list"><%- page.l.allCategories %></span>
             </div>
         </li>
         <li>
-            <a href="/<%- page.urls.genre %>" class="generic-anchor footer-list-anchor">Все жанры</a>
+            <a href="/<%- page.urls.genre %>" class="generic-anchor footer-list-anchor"><%- page.l.allGenres %></a>
         </li>
         <li>
-            <a href="/<%- page.urls.country %>" class="generic-anchor footer-list-anchor">Все страны</a>
+            <a href="/<%- page.urls.country %>" class="generic-anchor footer-list-anchor"><%- page.l.allCountries %></a>
         </li>
         <li>
-            <a href="/<%- page.urls.year %>" class="generic-anchor footer-list-anchor">Все года</a>
+            <a href="/<%- page.urls.year %>" class="generic-anchor footer-list-anchor"><%- page.l.allYears %></a>
         </li>
         <li>
-            <a href="/<%- page.urls.director %>" class="generic-anchor footer-list-anchor">Все режиссеры</a>
+            <a href="/<%- page.urls.director %>" class="generic-anchor footer-list-anchor"><%- page.l.allDirectors %></a>
         </li>
         <li>
-            <a href="/<%- page.urls.actor %>" class="generic-anchor footer-list-anchor">Все актеры</a>
+            <a href="/<%- page.urls.actor %>" class="generic-anchor footer-list-anchor"><%- page.l.allActors %></a>
         </li>
     </ul>
     <ul class="footer-list-top">
         <li>
-            <div class="footer-list-header"><span class="ion-location">Навигация</span></div>
+            <div class="footer-list-header"><span class="ion-location"><%- page.l.navigation %></span></div>
         </li>
         <li>
-            <a class="generic-anchor footer-list-anchor" href="/<%- page.urls.type %>/<%- page.urls.types.movie %>">Фильмы</a>
+            <a class="generic-anchor footer-list-anchor" href="/<%- page.urls.type %>/<%- page.urls.types.movie %>"><%- page.l.movies %></a>
         </li>
         <li>
-            <a class="generic-anchor footer-list-anchor" href="/<%- page.urls.type %>/<%- page.urls.types.serial %>">Сериалы</a>
+            <a class="generic-anchor footer-list-anchor" href="/<%- page.urls.type %>/<%- page.urls.types.serial %>"><%- page.l.series %></a>
         </li>
         <li>
-            <a class="generic-anchor footer-list-anchor" href="/<%- page.urls.type %>/<%- page.urls.types.mult %>">Мультфильмы</a>
+            <a class="generic-anchor footer-list-anchor" href="/<%- page.urls.type %>/<%- page.urls.types.mult %>"><%- page.l.cartoons %></a>
         </li>
         <li>
-            <a class="generic-anchor footer-list-anchor" href="/<%- page.urls.type %>/<%- page.urls.types.anime %>">Аниме</a>
+            <a class="generic-anchor footer-list-anchor" href="/<%- page.urls.type %>/<%- page.urls.types.anime %>"><%- page.l.anime %></a>
         </li>
         <li>
-            <a class="generic-anchor footer-list-anchor" href="/<%- page.urls.type %>/<%- page.urls.types.tv %>">Передачи</a>
+            <a class="generic-anchor footer-list-anchor" href="/<%- page.urls.type %>/<%- page.urls.types.tv %>"><%- page.l.tv %></a>
         </li>
     </ul>
     <ul class="footer-list-top">
         <li id='help'>
-            <div class="footer-list-header"><span class="ion-pricetags">Категории</span></div>
+            <div class="footer-list-header"><span class="ion-pricetags"><%- page.l.years %></span></div>
         </li>
         <% page.urls.years.slice(0,5).forEach(function(year) { %>
         <li>
-            <a class="generic-anchor footer-list-anchor" href="<%- year.url %>">Фильмы <%- year.title %> года</a>
+            <a class="generic-anchor footer-list-anchor" href="<%- year.url %>"><%- page.l.movies %> <%- year.title %></a>
         </li>
         <% }); %>
     </ul>
@@ -105,7 +105,7 @@
 
     <div class="footer-social-section flex-rw">
         <span class="footer-social-overlap footer-social-connect">
-            Присоединяйся <span class="footer-social-small">и</span> будь первым!
+            <%- page.l.subscribe %>
         </span>
         <span class="footer-social-overlap footer-social-icons-wrapper">
             <% if (page.social.vk) { %>
@@ -132,23 +132,23 @@
     <% } %>
 
     <div class="recentlyViewedBlock" style="margin: 25px; display: none;">
-        <div>Вы надавно смотрели:</div>
+        <div><%- page.l.watched %>:</div>
         <div id="recentlyViewed"></div>
     </div>
 
     <div class="footer-bottom-section flex-rw">
         <div class="footer-bottom-wrapper">
-            <a href="/">Лучшие фильмы в мире</a>
+            <a href="/<%- page.urls.content %>?tag=<%- page.l.collections %>"><%- page.l.collections %></a>
         </div>
         <div class="footer-bottom-wrapper">
-            <a href="mailto:<%- page.email %>">Email: <span id="mylo">Activate JS</span><script>(function(d,i,l,r){d.getElementById(i).innerHTML=l+'@'+r;})(window.document,'mylo','<%- page.email.split('@')[0] %>','<%- page.email.split('@')[1] %>');</script>
+            <a href="mailto:<%- page.email %>">Email: <span id="mylo">Activate JS</span></a><script>(function(d,i,l,r){d.getElementById(i).innerHTML=l+'@'+r;})(window.document,'mylo','<%- page.email.split('@')[0] %>','<%- page.email.split('@')[1] %>');</script>
         </div>
     </div>
 </div>
 <div class="footer_links cf">
     <ul>
         <li>
-            <a href="/">Все сериалы в мире ТОП 100</a>
+            <a href="/<%- page.urls.content %>?tag=<%- page.l.news %>"><%- page.l.news %></a>
         </li>
         <li class="counter">
 

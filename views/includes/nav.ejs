@@ -1,31 +1,31 @@
 <nav id="mp-menu" class="mp-menu">
     <div class="mp-level">
-        <h2 class="ion-earth">Выбор категории</h2>
+        <h2 class="ion-earth"><%- page.l.navigation %></h2>
         <ul>
-            <li><a class="ion-ios-videocam" href="/<%- page.urls.type %>/<%- page.urls.types.movie %>">Фильмы</a></li>
-            <li><a class="ion-ios-videocam" href="/<%- page.urls.type %>/<%- page.urls.types.serial %>">Сериалы</a></li>
-            <li><a class="ion-ios-videocam" href="/<%- page.urls.type %>/<%- page.urls.types.mult %>">Мультфильмы</a></li>
-            <li><a class="ion-ios-videocam" href="/<%- page.urls.type %>/<%- page.urls.types.anime %>">Аниме</a></li>
-            <li><a class="ion-ios-videocam" href="/<%- page.urls.type %>/<%- page.urls.types.tv %>">Передачи</a></li>
+            <li><a class="ion-ios-videocam" href="/<%- page.urls.type %>/<%- page.urls.types.movie %>"><%- page.l.movies %></a></li>
+            <li><a class="ion-ios-videocam" href="/<%- page.urls.type %>/<%- page.urls.types.serial %>"><%- page.l.series %></a></li>
+            <li><a class="ion-ios-videocam" href="/<%- page.urls.type %>/<%- page.urls.types.mult %>"><%- page.l.cartoons %></a></li>
+            <li><a class="ion-ios-videocam" href="/<%- page.urls.type %>/<%- page.urls.types.anime %>"><%- page.l.anime %></a></li>
+            <li><a class="ion-ios-videocam" href="/<%- page.urls.type %>/<%- page.urls.types.tv %>"><%- page.l.tv %></a></li>
             <li class="ion-chevron-left">
-                <a class="ion-calendar" href="javascript:void(0);">По годам</a>
+                <a class="ion-calendar" href="javascript:void(0);"><%- page.l.years %></a>
                 <div class="mp-level">
-                    <h2 class="ion-calendar">Фильмы по годам</h2>
-                    <a class="mp-back" href="javascript:void(0);">Назад</a>
+                    <h2 class="ion-calendar"><%- page.l.years %></h2>
+                    <a class="mp-back" href="javascript:void(0);"><%- page.l.menu %></a>
                     <ul>
                         <% page.urls.years.slice(0,10).forEach(function(year) { %>
                         <li>
-                            <a class="ion-android-calendar" href="<%- year.url %>">Фильмы <%- year.title %> года</a>
+                            <a class="ion-android-calendar" href="<%- year.url %>"><%- page.l.movies %> <%- year.title %></a>
                         </li>
                         <% }); %>
                     </ul>
                 </div>
             </li>
             <li class="ion-chevron-left">
-                <a class="ion-pound" href="javascript:void(0);">Жанры</a>
+                <a class="ion-pound" href="javascript:void(0);"><%- page.l.genres %></a>
                 <div class="mp-level">
-                    <h2 class="ion-pound">Фильмы по жанрам</h2>
-                    <a class="mp-back" href="javascript:void(0);">Назад</a>
+                    <h2 class="ion-pound"><%- page.l.genres %></h2>
+                    <a class="mp-back" href="javascript:void(0);"><%- page.l.menu %></a>
                     <ul>
                         <% page.urls.genres.forEach(function(genre) { %>
                         <li>
@@ -35,11 +35,11 @@
                     </ul>
                 </div>
             </li>
-            <li><a class="ion-videocamera" href="/<%- page.urls.type %>/<%- page.urls.types.movie %>?sorting=premiere-up">Премьеры</a></li>
+            <li><a class="ion-videocamera" href="/<%- page.urls.type %>/<%- page.urls.types.movie %>?sorting=premiere-up"><%- page.l.premieres %></a></li>
             <% page.urls.years.slice(0,1).forEach(function(year) { %>
-            <li><a class="ion-flame" href="<%- year.url %>">Новинки кино</a></li>
+            <li><a class="ion-flame" href="<%- year.url %>"><%- page.l.popular %></a></li>
             <% }); %>
-            <li><a class="ion-android-star-outline" href="/<%- page.urls.content %>?tag=Коллекция">Подборки</a></li>
+            <li><a class="ion-android-star-outline" href="/<%- page.urls.content %>?tag=<%- page.l.collections %>"><%- page.l.collections %></a></li>
         </ul>
     </div>
 </nav>
