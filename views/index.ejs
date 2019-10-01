@@ -89,7 +89,16 @@
 
                             <div class="hblock cf">
                                 <div class="block-link">
-                                    <span class="ion-grid"><%- category.name %></span>
+                                    <div class="ion-grid">
+                                        <%- category.name %>
+                                        <div class="randomMovieIndex">
+                                            <div class="cinemapress-random-index"
+                                                 onclick="window.location.href='<%- category.url %>?random'"
+                                                 title="<%- page.l.random %>">
+                                                <img src="/themes/bran/public/images/dice.svg" alt="<%- page.l.random %>">
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <% if (category.movies.length) {

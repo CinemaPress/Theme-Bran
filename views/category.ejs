@@ -86,8 +86,18 @@
                             <div style="clear: both;"></div>
                             <% } %>
 
+                            <div class="randomMovieCategory">
+                                <div class="cinemapress-random-category"
+                                     onclick="window.location.href='<%- page.url %>?random'">
+                                    <img src="/themes/bran/public/images/dice.svg" alt="<%- page.l.random %>">
+                                    <span><%- page.l.lucky %></span>
+                                    <small><%- page.l.random %></small>
+                                </div>
+                            </div>
+
                             <% if (typeof page.sorting === 'object') { %>
 
+                            <div style="clear: both;"></div>
                             <div class="navigation-holder basecont ignore-select">
                                 <div class="navigation">
 

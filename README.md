@@ -1,10 +1,10 @@
 # Theme «bran»
 
-![Theme «bran» for CinemaPress ACMS](https://raw.githubusercontent.com/CinemaPress/Theme-Bran/master/screenshot.png "Theme «bran» for CinemaPress ACMS")
+![Theme «bran» for CinemaPress](https://raw.githubusercontent.com/CinemaPress/Theme-Bran/master/screenshot.png "Theme «bran» for CinemaPress")
 
-:art: Theme «bran» for CinemaPress ACMS
+:art: Theme «bran» for CinemaPress
 
-- [Bran.CinemaPress.org](http://Bran.CinemaPress.org/)
+- [Bran.CinemaPress.io](http://Bran.CinemaPress.io/)
 
 ## How to install?
 1. Download [GitHub](https://github.com/CinemaPress/Theme-Bran/archive/master.zip) or [GitLab](https://gitlab.com/CinemaPress/Theme-Bran/repository/archive.zip) or [BitBucket](https://bitbucket.org/cinemapress/theme-bran/get/master.zip) or [Coding](https://coding.net/u/CinemaPress/p/Theme-Bran/git/archive/master.zip)
@@ -14,7 +14,7 @@
 
 ## Installation via terminal
 ```
-~# wget cinemapress.org/i -qO i && chmod +x i && ./i 3
+~# bash <(wget -qO- cinemapress.sh)
 ```
 
 ## Как установить?
@@ -25,5 +25,5 @@
 
 ## Установка через терминал
 ```
-~# wget cinemapress.org/i -qO i && chmod +x i && ./i 3
+~# bash <(wget -qO- cinemapress.sh)
 ```

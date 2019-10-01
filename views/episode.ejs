@@ -111,10 +111,6 @@
                                                 </div>
                                             </div>
                                             <div class="buttons">
-                                                <div class="gp share-btn" onclick="share(this)" data-tooltip="<%- page.l.google %>"><i class="fa fa-google-plus"></i>
-                                                </div>
-                                            </div>
-                                            <div class="buttons">
                                                 <div class="ok share-btn" onclick="share(this)" data-tooltip="OK"> <i class="fa fa-odnoklassniki"></i>
                                                 </div>
                                             </div>
@@ -220,7 +216,7 @@
                                 </div>
                                 <% } %>
 
-                                <div class="cinemapress-data" style="height: 370px; border-radius: 10px; background: transparent;overflow: hidden;">
+                                <div id="cinemapress-player" class="cinemapress-data" style="border-radius: 10px; width: 80%; margin: 10px auto;">
                                     <%- page.player %>
                                 </div>
 
@@ -266,6 +262,13 @@
                             <div class="hblock cf">
                                 <div class="block-link">
                                     <%- category.name %>
+                                    <div class="randomMovieRelated">
+                                        <div class="cinemapress-random-related"
+                                             onclick="window.location.href='<%- category.url %>?random'"
+                                             title="<%- page.l.random %>">
+                                            <img src="/themes/bran/public/images/dice.svg" alt="<%- page.l.random %>">
+                                        </div>
+                                    </div>
                                 </div>
                                 <% if (category.movies.length) {
                                 category.movies.forEach(function (movie) {  %>
