@@ -3,7 +3,7 @@
 <% news.forEach(function (content) { %>
 <div class="cinemapress-news-block">
     <div style="margin: 0; padding: 10px">
-        <a href="<%- content.url %>" class="cinemapress-news" style="background-image:url(<%- content.image %>);">
+        <a href="<%- content.url %>" class="cinemapress-news" style="background-image:url('<%- content.image %>');">
             <div class="cinemapress-news-title">
                 <%= content.title %>
             </div>
@@ -155,10 +155,10 @@
         </li>
     </ul>
 </div>
-<div class="age"><img src="/themes/bran/public/images/pg.png" alt="18+"></div>
+<div class="age"><img src="/themes/<%- page.theme %>/public/images/pg.png" alt="18+"></div>
 <div class="copyrights">
     &copy;&nbsp;<%- new Date().getFullYear() %>&nbsp;<a href="https://cinemapress.io" target="_blank">CinemaPress</a>
 </div>
-<script src="/themes/bran/public/js/all.min.js"></script>
+<script src="/themes/<%- page.theme %>/public/js/all.min.js"></script>
 
 <%- page.codes.footer %>
