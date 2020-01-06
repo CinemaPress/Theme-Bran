@@ -14,9 +14,9 @@
                     <a class="mp-back" href="javascript:void(0);"><%- page.l.menu %></a>
                     <ul>
                         <% page.urls.years.slice(0,10).forEach(function(year) { %>
-                        <li>
-                            <a class="ion-android-calendar" href="<%- year.url %>"><%- page.l.movies %> <%- year.title %></a>
-                        </li>
+                            <li>
+                                <a class="ion-android-calendar" href="<%- year.url %>"><%- page.l.movies %> <%- year.title %></a>
+                            </li>
                         <% }); %>
                     </ul>
                 </div>
@@ -28,16 +28,16 @@
                     <a class="mp-back" href="javascript:void(0);"><%- page.l.menu %></a>
                     <ul>
                         <% page.urls.genres.forEach(function(genre) { %>
-                        <li>
-                            <a class="ion-android-calendar" href="<%- genre.url %>"><%- genre.title %></a>
-                        </li>
+                            <li>
+                                <a class="ion-android-calendar" href="<%- genre.url %>"><%- genre.title %></a>
+                            </li>
                         <% }); %>
                     </ul>
                 </div>
             </li>
             <li><a class="ion-videocamera" href="/<%- page.urls.type %>/<%- page.urls.types.movie %>?sorting=premiere-up"><%- page.l.premieres %></a></li>
             <% page.urls.years.slice(0,1).forEach(function(year) { %>
-            <li><a class="ion-flame" href="<%- year.url %>"><%- page.l.popular %></a></li>
+                <li><a class="ion-flame" href="<%- year.url %>"><%- page.l.popular %></a></li>
             <% }); %>
             <li><a class="ion-android-star-outline" href="/<%- page.urls.content %>?tag=<%- page.l.collections %>"><%- page.l.collections %></a></li>
         </ul>

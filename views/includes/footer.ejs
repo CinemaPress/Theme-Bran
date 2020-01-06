@@ -1,49 +1,51 @@
 <% if (typeof news === 'object' && news.length) { %>
-<div style="clear: both"></div>
-<% news.forEach(function (content) { %>
-<div class="cinemapress-news-block">
-    <div style="margin: 0; padding: 10px">
-        <a href="<%- content.url %>" class="cinemapress-news" style="background-image:url('<%- content.image %>');">
-            <div class="cinemapress-news-title">
-                <%= content.title %>
+    <div style="clear: both"></div>
+    <% news.forEach(function (content) { %>
+        <div class="cinemapress-news-block">
+            <div style="margin: 0; padding: 10px">
+                <a href="<%- content.url %>" class="cinemapress-news" style="background-image:url('<%- content.image %>');">
+                    <div class="cinemapress-news-title">
+                        <%= content.title %>
+                    </div>
+                </a>
             </div>
-        </a>
-    </div>
-</div>
-<% }); %>
+        </div>
+    <% }); %>
 <% } %>
 
 <% if (typeof recent === 'object' && recent.length) { %>
-<div class="cinemapress-news-block" style="height: 200px; overflow-y: scroll; margin: 10px 0; padding: 0 10px;">
-<% recent.forEach(function (comment) { %>
-    <div class="cinemapress-recent">
-        <div class="cinemapress-recent-head">
-            <% if (comment.avatar) { %>
-            <div class="cinemapress-recent-head-avatar">
-                <img src="<%- comment.avatar %>" alt="<%- comment.user %>">
-            </div>
-            <% } %>
-            <div class="cinemapress-recent-head-meta">
-                <div>
-                    <a href="<%- comment.url %>"><%= comment.title %></a>
+    <div class="cinemapress-news-block" style="height: 200px; overflow-y: scroll; margin: 10px 0; padding: 0 10px;">
+        <% recent.forEach(function (comment) { %>
+            <div>
+                <div class="cinemapress-comment">
+                    <div class="cinemapress-comment-head">
+                        <div class="cinemapress-comment-head-avatar">
+                            <img src="<%- comment.avatar %>" alt="<%= comment.user %>">
+                        </div>
+                        <div class="cinemapress-comment-head-meta">
+                            <div class="cinemapress-comment-head-meta-title">
+                                <a href="<%- comment.url %>" title="<%= comment.title %>"><%= comment.title %></a>
+                            </div>
+                            <div class="cinemapress-comment-user" data-comment-id="<%- comment.id %>">
+                                <div class="cinemapress-comment-user-name">
+                                    <%- comment.user %>
+                                </div><div class="cinemapress-comment-user-said">
+                                    <%- page.l.said %>
+                                </div><div class="cinemapress-comment-user-date">
+                                    <%- comment.date %>
+                                </div><div class="cinemapress-comment-user-link">
+                                    <a href="<%- comment.url %>#c<%- comment.id %>" title="<%= comment.title %>">#</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cinemapress-comment-bg cinemapress-comment-radius">
+                        <%- comment.comment %>
+                    </div>
                 </div>
-                <div>
-                    <span>
-                        <%- comment.user %>
-                    </span><span>
-                        <%- page.l.said %>
-                    </span><span>
-                        <%- comment.date %>
-                    </span>
-                </div>
             </div>
-        </div>
-        <div class="cinemapress-recent-comment">
-            <%- comment.comment %>
-        </div>
+        <% }); %>
     </div>
-<% }); %>
-</div>
 <% } %>
 
 <div style="clear: both"></div>
@@ -96,38 +98,38 @@
             <div class="footer-list-header"><span class="ion-pricetags"><%- page.l.years %></span></div>
         </li>
         <% page.urls.years.slice(0,5).forEach(function(year) { %>
-        <li>
-            <a class="generic-anchor footer-list-anchor" href="<%- year.url %>"><%- page.l.movies %> <%- year.title %></a>
-        </li>
+            <li>
+                <a class="generic-anchor footer-list-anchor" href="<%- year.url %>"><%- page.l.movies %> <%- year.title %></a>
+            </li>
         <% }); %>
     </ul>
     <% if (page.social) { %>
 
-    <div class="footer-social-section flex-rw">
+        <div class="footer-social-section flex-rw">
         <span class="footer-social-overlap footer-social-connect">
             <%- page.l.subscribe %>
         </span>
-        <span class="footer-social-overlap footer-social-icons-wrapper">
-            <% if (page.social.vk) { %>
-            <a class="generic-anchor" href="<%- page.social.vk %>" target="_blank"><i class="fa fa-vk"></i></a>
-            <% } %>
-            <% if (page.social.facebook) { %>
-            <a class="generic-anchor" href="<%- page.social.facebook %>" target="_blank"><i class="fa fa-facebook"></i></a>
-            <% } %>
-            <% if (page.social.telegram) { %>
-                <a class="generic-anchor" href="<%- page.social.telegram %>" target="_blank"><i class="fa fa-telegram"></i></a>
-            <% } %>
-            <% if (page.social.twitter) { %>
-            <a class="generic-anchor" href="<%- page.social.twitter %>" target="_blank"><i class="fa fa-twitter"></i></a>
-            <% } %>
-            <% if (page.social.youtube) { %>
-            <a class="generic-anchor" href="<%- page.social.youtube %>" target="_blank"><i class="fa fa-youtube"></i></a>
-            <% } %>
-            <% if (page.social.instagram) { %>
-            <a class="generic-anchor" href="<%- page.social.instagram %>" target="_blank"><i class="fa fa-instagram"></i></a>
-            <% } %>
-        </span>
-    </div>
+            <span class="footer-social-overlap footer-social-icons-wrapper">
+                <% if (page.social.vk) { %>
+                    <a class="generic-anchor" href="<%- page.social.vk %>" target="_blank"><i class="fa fa-vk"></i></a>
+                <% } %>
+                <% if (page.social.facebook) { %>
+                    <a class="generic-anchor" href="<%- page.social.facebook %>" target="_blank"><i class="fa fa-facebook"></i></a>
+                <% } %>
+                <% if (page.social.telegram) { %>
+                    <a class="generic-anchor" href="<%- page.social.telegram %>" target="_blank"><i class="fa fa-telegram"></i></a>
+                <% } %>
+                <% if (page.social.twitter) { %>
+                    <a class="generic-anchor" href="<%- page.social.twitter %>" target="_blank"><i class="fa fa-twitter"></i></a>
+                <% } %>
+                <% if (page.social.youtube) { %>
+                    <a class="generic-anchor" href="<%- page.social.youtube %>" target="_blank"><i class="fa fa-youtube"></i></a>
+                <% } %>
+                <% if (page.social.instagram) { %>
+                    <a class="generic-anchor" href="<%- page.social.instagram %>" target="_blank"><i class="fa fa-instagram"></i></a>
+                <% } %>
+            </span>
+        </div>
 
     <% } %>
 

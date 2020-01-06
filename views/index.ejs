@@ -2,20 +2,20 @@
 <html lang="<%- page.language %>">
 <head>
 
-    <% include includes/head.ejs %>
+    <%- include('includes/head.ejs'); -%>
 
 </head>
 <body>
 <header class="header">
 
-    <% include includes/header.ejs %>
+    <%- include('includes/header.ejs'); -%>
 
 </header>
 <div class="container">
     <div class="cont-wrap">
         <div class="mp-pusher" id="mp-pusher">
 
-            <% include includes/nav.ejs %>
+            <%- include('includes/nav.ejs'); -%>
 
             <div class="scroller">
                 <div class="scroller-inner" style="z-index: 0">
@@ -29,127 +29,127 @@
                         <div style="background: url('/themes/<%- page.theme %>/public/images/top_pic.png') center no-repeat;position: absolute;width: 100%;height: 100%;text-align: center;margin: 0 auto; z-index: -1000"></div>
                         <ul class="footer-list-top-info">
                             <% page.urls.genres.slice(0,10).forEach(function(genre) { %>
-                            <li style="padding: 0; text-align: right;">
-                                <a class="generic-anchor footer-list-anchor" href="<%- genre.url %>" style="text-shadow: 1px 1px 0 black, 0 0 1em #000;"><%- genre.title %></a>
-                                <span class="fa fa-angle-double-left" style="color: #18cfc4"></span>
-                            </li>
+                                <li style="padding: 0; text-align: right;">
+                                    <a class="generic-anchor footer-list-anchor" href="<%- genre.url %>" style="text-shadow: 1px 1px 0 black, 0 0 1em #000;"><%- genre.title %></a>
+                                    <span class="fa fa-angle-double-left" style="color: #18cfc4"></span>
+                                </li>
                             <% }); %>
                         </ul>
                         <ul class="footer-list-top">
                             <% page.urls.years.slice(0,10).forEach(function(year) { %>
-                            <li style="padding: 0">
-                                <a class="generic-anchor footer-list-anchor" href="<%- year.url %>" style="text-shadow: 1px 1px 0 black, 0 0 1em #000;">
-                                    <span class="fa fa-angle-double-right" style="color: #18cfc4"></span>
-                                    <span style="color: #fff;"> <%- year.title %> <%- page.l.year %> </span>
-                                    <span class="fa fa-angle-double-left" style="color: #18cfc4"></span>
-                                </a>
-                            </li>
+                                <li style="padding: 0">
+                                    <a class="generic-anchor footer-list-anchor" href="<%- year.url %>" style="text-shadow: 1px 1px 0 black, 0 0 1em #000;">
+                                        <span class="fa fa-angle-double-right" style="color: #18cfc4"></span>
+                                        <span style="color: #fff;"> <%- year.title %> <%- page.l.year %> </span>
+                                        <span class="fa fa-angle-double-left" style="color: #18cfc4"></span>
+                                    </a>
+                                </li>
                             <% }); %>
                         </ul>
                         <ul class="footer-list-top">
                             <% page.urls.genres.slice(-11, -1).forEach(function(genre) { %>
-                            <li style="padding: 0; text-align: left;">
-                                <span class="fa fa-angle-double-right" style="color: #18cfc4"></span>
-                                <a class="generic-anchor footer-list-anchor" href="<%- genre.url %>" style="text-shadow: 1px 1px 0 black, 0 0 1em #000;"><%- genre.title %></a>
-                            </li>
+                                <li style="padding: 0; text-align: left;">
+                                    <span class="fa fa-angle-double-right" style="color: #18cfc4"></span>
+                                    <a class="generic-anchor footer-list-anchor" href="<%- genre.url %>" style="text-shadow: 1px 1px 0 black, 0 0 1em #000;"><%- genre.title %></a>
+                                </li>
                             <% }); %>
                         </ul>
                     </div>
 
                     <% if (typeof slider === 'object' && slider.length) { %>
 
-                    <div class="hblock cf">
-                        <div id="owl-demo" class="owl-carousel owl-theme" style="margin: 20px auto;">
+                        <div class="hblock cf">
+                            <div id="owl-demo" class="owl-carousel owl-theme" style="margin: 20px auto;">
 
-                            <% slider.forEach(function (movie) { %>
+                                <% slider.forEach(function (movie) { %>
 
-                            <div class="item">
+                                    <div class="item">
 
-                                <% include includes/short.ejs %>
+                                        <%- include('includes/short.ejs', {movie: movie}); -%>
+
+                                    </div>
+
+                                <% }); %>
 
                             </div>
-
-                            <% }); %>
-
                         </div>
-                    </div>
 
                     <% } %>
 
                     <% if (typeof page.adv === 'object' && page.adv.top) { %>
-                    <div style="text-align: center; margin: 10px auto">
-                        <%- page.adv.top %>
-                    </div>
+                        <div style="text-align: center; margin: 10px auto">
+                            <%- page.adv.top %>
+                        </div>
                     <% } %>
 
                     <% if (typeof index === 'object') {
-                        for (var type in index) {
-                            if (index.hasOwnProperty(type) && index[type].length) {
-                                index[type].forEach(function (category) { %>
+                            for (var type in index) {
+                    if (index.hasOwnProperty(type) && index[type].length) {
+                    index[type].forEach(function (category) { %>
 
-                            <div class="hblock cf">
-                                <div class="block-link">
-                                    <div class="ion-grid">
-                                        <%- category.name %>
-                                        <div class="randomMovieIndex">
-                                            <div <% if (!category.url) { %>style="display:none"<% } %> class="cinemapress-random-index"
-                                                 onclick="window.location.href='<%- (category.url && category.url.indexOf('?')+1 ? category.url + '&random' : category.url + '?random') %>'"
-                                                 title="<%- page.l.random %>">
-                                                <img src="/themes/<%- page.theme %>/public/images/dice.svg" alt="<%- page.l.random %>">
-                                            </div>
+                        <div class="hblock cf">
+                            <div class="block-link">
+                                <div class="ion-grid">
+                                    <%- category.name %>
+                                    <div class="randomMovieIndex">
+                                        <div <% if (!category.url) { %>style="display:none"<% } %> class="cinemapress-random-index"
+                                             onclick="window.location.href='<%- (category.url && category.url.indexOf('?')+1 ? category.url + '&random' : category.url + '?random') %>'"
+                                             title="<%= page.l.random %>">
+                                            <img src="/themes/<%- page.theme %>/public/images/dice.svg" alt="<%= page.l.random %>">
                                         </div>
                                     </div>
                                 </div>
+                            </div>
 
-                                <% if (category.movies.length) {
-                                category.movies.forEach(function (movie) { %>
+                            <% if (category.movies.length) {
+                            category.movies.forEach(function (movie) { %>
 
                                 <div class="shortstory cf">
 
-                                    <% include includes/short.ejs %>
+                                    <%- include('includes/short.ejs', {movie: movie}); -%>
 
                                 </div>
 
-                                <% }); } %>
+                            <% }); } %>
 
-                            </div>
+                        </div>
 
                     <% }); } } } %>
 
                     <div style="clear: both"></div>
 
                     <% if (typeof page.pagination === 'object') { %>
-                    <div class="navigation-holder basecont ignore-select">
-                        <div class="navigation biggest">
-                            <% if (page.pagination.first) { %>
-                            <a href="<%- page.pagination.first.link %>" rel="nofollow"><%- page.pagination.first.number %></a>
-                            <span class="nav_ext">...</span>
-                            <% } %>
-                            <% if (page.pagination.prev.length) { %>
-                            <% page.pagination.prev.forEach(function (prev) { %>
-                            <a href="<%- prev.link %>" rel="nofollow"><%- prev.number %></a>
-                            <% }); %>
-                            <span class="nav_ext">...</span>
-                            <% } %>
-                            <strong><a><%- page.pagination.current %></a></strong>
-                            <% if (page.pagination.next.length) { %>
-                            <span class="nav_ext">...</span>
-                            <% page.pagination.next.forEach(function (next) { %>
-                            <a href="<%- next.link %>" rel="nofollow"><%- next.number %></a>
-                            <% }); %>
-                            <% } %>
-                            <% if (page.pagination.last) { %>
-                            <span class="nav_ext">...</span>
-                            <a href="<%- page.pagination.last.link %>" rel="nofollow"><%- page.pagination.last.number %></a>
-                            <% } %>
+                        <div class="navigation-holder basecont ignore-select">
+                            <div class="navigation biggest">
+                                <% if (page.pagination.first) { %>
+                                    <a href="<%- page.pagination.first.link %>" rel="nofollow"><%- page.pagination.first.number %></a>
+                                    <span class="nav_ext">...</span>
+                                <% } %>
+                                <% if (page.pagination.prev.length) { %>
+                                    <% page.pagination.prev.forEach(function (prev) { %>
+                                        <a href="<%- prev.link %>" rel="nofollow"><%- prev.number %></a>
+                                    <% }); %>
+                                    <span class="nav_ext">...</span>
+                                <% } %>
+                                <strong><a><%- page.pagination.current %></a></strong>
+                                <% if (page.pagination.next.length) { %>
+                                    <span class="nav_ext">...</span>
+                                    <% page.pagination.next.forEach(function (next) { %>
+                                        <a href="<%- next.link %>" rel="nofollow"><%- next.number %></a>
+                                    <% }); %>
+                                <% } %>
+                                <% if (page.pagination.last) { %>
+                                    <span class="nav_ext">...</span>
+                                    <a href="<%- page.pagination.last.link %>" rel="nofollow"><%- page.pagination.last.number %></a>
+                                <% } %>
+                            </div>
                         </div>
-                    </div>
                     <% } %>
 
                     <% if (typeof page.adv === 'object' && page.adv.bottom) { %>
-                    <div style="text-align: center; margin: 10px auto">
-                        <%- page.adv.bottom %>
-                    </div>
+                        <div style="text-align: center; margin: 10px auto">
+                            <%- page.adv.bottom %>
+                        </div>
                     <% } %>
 
                 </div>
@@ -160,14 +160,14 @@
 <footer class="footer cf">
 
     <% if (page.seo) { %>
-    <div class="about">
-        <div class="wrapper">
-            <%- page.seo %>
+        <div class="about">
+            <div class="wrapper">
+                <%- page.seo %>
+            </div>
         </div>
-    </div>
     <% } %>
 
-    <% include includes/footer.ejs %>
+    <%- include('includes/footer.ejs'); -%>
 
 </footer>
 </body>

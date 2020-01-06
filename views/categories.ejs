@@ -2,50 +2,50 @@
 <html lang="<%- page.language %>">
 <head>
 
-    <% include includes/head.ejs %>
+    <%- include('includes/head.ejs'); -%>
 
 </head>
 <body>
 <header class="header">
 
-    <% include includes/header.ejs %>
+    <%- include('includes/header.ejs'); -%>
 
 </header>
 <div class="container">
     <div class="cont-wrap">
         <div class="mp-pusher" id="mp-pusher">
 
-            <% include includes/nav.ejs %>
+            <%- include('includes/nav.ejs'); -%>
 
             <div class="scroller">
                 <div class="scroller-inner">
 
                     <% if (typeof slider === 'object' && slider.length) { %>
 
-                    <div class="hblock cf">
+                        <div class="hblock cf">
 
-                        <div id="owl-demo" class="owl-carousel owl-theme" style="margin: 20px auto;">
+                            <div id="owl-demo" class="owl-carousel owl-theme" style="margin: 20px auto;">
 
-                            <% slider.forEach(function (movie) { %>
+                                <% slider.forEach(function (movie) { %>
 
-                            <div class="item">
+                                    <div class="item">
 
-                                <% include includes/short.ejs %>
+                                        <%- include('includes/short.ejs', {movie: movie}); -%>
+
+                                    </div>
+
+                                <% }); %>
 
                             </div>
 
-                            <% }); %>
-
                         </div>
-
-                    </div>
 
                     <% } %>
 
                     <% if (typeof page.adv === 'object' && page.adv.top) { %>
-                    <div style="text-align: center; margin: 10px auto">
-                        <%- page.adv.top %>
-                    </div>
+                        <div style="text-align: center; margin: 10px auto">
+                            <%- page.adv.top %>
+                        </div>
                     <% } %>
 
                     <div class="mblock breadcrumbs">
@@ -67,25 +67,25 @@
                         <div id="cinemapress-content">
 
                             <% if (typeof categories === 'object' && categories.length) { %>
-                            <div style="clear: both"></div>
-                            <% categories.forEach(function (content) { %>
-                            <div style="float:left;width:25%;">
-                                <div style="margin:10px;padding:0;position:relative">
-                                    <div class="cinemapress-categories" style="background-image:url('<%- content.image %>');"></div>
-                                    <a href="<%- content.url %>" class="cinemapress-categories-title"><%= content.title %></a>
-                                </div>
-                            </div>
-                            <% }); %>
-                            <div style="clear: both"></div>
+                                <div style="clear: both"></div>
+                                <% categories.forEach(function (content) { %>
+                                    <div style="float:left;width:25%;">
+                                        <div style="margin:10px;padding:0;position:relative">
+                                            <div class="cinemapress-categories" style="background-image:url('<%- content.image %>');"></div>
+                                            <a href="<%- content.url %>" class="cinemapress-categories-title"><%= content.title %></a>
+                                        </div>
+                                    </div>
+                                <% }); %>
+                                <div style="clear: both"></div>
                             <% } %>
 
                         </div>
                     </div>
 
                     <% if (typeof page.adv === 'object' && page.adv.bottom) { %>
-                    <div style="text-align: center; margin: 10px auto">
-                        <%- page.adv.bottom %>
-                    </div>
+                        <div style="text-align: center; margin: 10px auto">
+                            <%- page.adv.bottom %>
+                        </div>
                     <% } %>
 
                 </div>
@@ -97,15 +97,15 @@
 
     <% if (page.seo) { %>
 
-    <div class="about">
-        <div class="wrapper">
-            <%- page.seo %>
+        <div class="about">
+            <div class="wrapper">
+                <%- page.seo %>
+            </div>
         </div>
-    </div>
 
     <% } %>
 
-    <% include includes/footer.ejs %>
+    <%- include('includes/footer.ejs'); -%>
 
 </footer>
 </body>
