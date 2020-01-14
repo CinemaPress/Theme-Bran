@@ -12,7 +12,7 @@
 </div>
 <a href="javascript:void(0)" class="fav_link continueViewingBlock" id="continueViewing" style="display: none;"><%- page.l.continue %>?</a>
 <div class="randomMovieMenu">
-    <a href="/?random" class="live_link cinemapress-random-menu" title="<%= page.l.random %>">
+    <a href="/?random=<%- Math.random() %>" class="live_link cinemapress-random-menu" title="<%= page.l.random %>">
         <img src="/themes/<%- page.theme %>/public/images/dice.svg" alt="<%= page.l.lucky %>">
         <%- page.l.lucky %>
     </a>
