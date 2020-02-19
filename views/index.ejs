@@ -102,7 +102,7 @@
                             </div>
 
                             <% if (category.movies.length) {
-                            category.movies.forEach(function (movie) { %>
+                            category.movies.forEach(function (movie) { if (movie.hide) { return false; } %>
 
                                 <div class="shortstory cf">
 
