@@ -1,8 +1,13 @@
 <div class="short_content">
     <a href="<%- movie.url %>">
-        <div style="z-index:1;width:100%;height:300px;background: url('<%- movie.poster %>') center no-repeat;background-size: cover;box-shadow: 0 6px 12px rgba(0,0,0,.23),0 10px 40px rgba(0,0,0,.19);" title="<%= movie.title %>"></div>
+        <div style="z-index:1;width:100%;height:300px;background: url('<%- movie.poster %>') center no-repeat;background-size: cover;box-shadow: 0 6px 12px rgba(0,0,0,.23),0 10px 40px rgba(0,0,0,.19);"
+             title="<%= movie.title %>"></div>
         <div class="short_header">
-            <%= movie.title %> (<% if (movie.season && movie.episode) { %><%- movie.season %> <%- page.l.season %> <%- movie.episode %> <%- page.l.episode %> <% if (movie.translate) { %><%- movie.translate %><% } %><% } else { %><%- movie.year %><% } %>)
+            <%= movie.title %> (
+            <% if (movie.season && movie.episode) { %><%- movie.season %> <%- page.l.season %> <%- movie.episode %> <%- page.l.episode %> <% if (movie.translate) { %><%- movie.translate %><% } %>
+            <% } else { %><%- movie.year %>
+            <% } %>
+            )
         </div>
     </a>
     <div class="short_overlay">
@@ -18,13 +23,14 @@
         </div>
     <% } %>
     <% if (page.urls.movies.trailer) { %>
-        <div class="eyelabel"><a href="<%- movie.url %>/<%- page.urls.movies.trailer %>"><i class="fa fa-video-camera">&nbsp;</i></a></div>
+        <div class="eyelabel"><a href="<%- movie.url %>/<%- page.urls.movies.trailer %>"><i class="fa fa-video-camera">&nbsp;</i></a>
+        </div>
     <% } %>
     <div class="ratelabel"><%- movie.country.substr(0, 10) %></div>
     <div class="qulabel"><%- movie.genre.substr(0, 10) %></div>
     <div class="rating-scores">
-        <div><%- page.l.kp %> <span class="kinopoisk"><%- movie.kp_rating/10 %></span></div>
-        <div><%- page.l.imdb %> <span class="imdb"><%- movie.imdb_rating/10 %></span></div>
+        <div><%- page.l.kp %> <span class="kinopoisk"><%- movie.kp_rating / 10 %></span></div>
+        <div><%- page.l.imdb %> <span class="imdb"><%- movie.imdb_rating / 10 %></span></div>
     </div>
     <% if (movie.vote) { %>
         <div class="small_rating">
