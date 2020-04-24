@@ -64,7 +64,7 @@
                     <div class="cf">
                         <div id="cinemapress-content">
 
-                            <% if (typeof content === 'object') { %>
+                            <% if (typeof content === 'object' && page.current_page === 1) { %>
                                 <div class="cinemapress-content">
                                     <% if (content.image) { %>
                                         <img src="<%- content.image %>" class="cinemapress-content-image">
@@ -176,7 +176,7 @@
 
                             <div style="clear: both"></div>
 
-                            <% if (typeof content === 'object') { %>
+                            <% if (typeof content === 'object' && page.current_page === 1) { %>
                                 <div class="comments">
                                     <% if (page.comments) { %>
                                         <%- page.comments %>
