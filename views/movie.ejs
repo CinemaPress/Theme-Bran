@@ -493,7 +493,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <% if (category.movies.length) {
+                                    <% if (typeof category === 'object' && category.movies && category.movies.length) {
                                     category.movies.forEach(function (movie) { %>
                                         <div class="shortstory cf">
                                             <%- include('includes/short.ejs', {movie: movie}); -%>
