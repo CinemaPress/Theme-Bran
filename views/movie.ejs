@@ -63,11 +63,7 @@
                             <div class="full-story cf">
                                 <div class="fleft cf">
                                     <div class="poster cf">
-                                        <img src="<%- movie.poster_min %>" data-cinemapress-src="<%- movie.poster %>" alt="<%= page.title %>" title="<%= page.title %>"
-                                             data-cinemapress-poster="<%- movie.poster %>">
-                                        <script>setTimeout(function() {
-                                          document.querySelector('img[data-cinemapress-poster]').src = '<%- movie.poster_big %>';
-                                          }, 1000)</script>
+                                        <img src="<%- movie.poster_min %>" data-cinemapress-src="<%- movie.poster %>" alt="<%= page.title %>" title="<%= page.title %>" data-cinemapress-poster="<%- movie.poster %>">
                                         <% if (page.urls.movies.online) { %>
                                             <a href="<%- movie.url %>/<%- page.urls.movies.online %>"
                                                title="<%= movie.title %>">
