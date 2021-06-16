@@ -1,10 +1,10 @@
 # Theme «bran»
 
-![Theme «bran» for CinemaPress](https://raw.githubusercontent.com/CinemaPress/Theme-Bran/master/screenshot.png "Theme «bran» for CinemaPress")
+![Theme «bran» for CinemaPress](https://raw.githubusercontent.com/CinemaPress/Theme-Bran/master/screenshot.png)
 
 :art: Theme «bran» for CinemaPress
 
-- [Bran.CinemaPress.io](http://Bran.CinemaPress.io/)
+- `«bran»`
 
 ## How to install?
 1. Download [GitHub](https://github.com/CinemaPress/Theme-Bran/archive/master.zip) or [GitLab](https://gitlab.com/CinemaPress/Theme-Bran/repository/archive.zip) or [BitBucket](https://bitbucket.org/cinemapress/theme-bran/get/master.zip)
